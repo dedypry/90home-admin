@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { http } from "@/config/axios";
-import { IApprove } from "@/interface/IUser";
-import { notify, notifyError } from "@/utils/helpers/notify";
-import { AppDispatch } from "@/stores";
+import { notifyError } from "@/utils/helpers/notify";
 import { IQueryPagination } from "@/interface/IPagination";
 
 export const getUser = createAsyncThunk(
@@ -42,19 +40,3 @@ export const getUserDetail = createAsyncThunk(
     }
   },
 );
-
-export function handleApprove(data: IApprove, dispatchCallback: () => any) {
-  return (dispatch: AppDispatch) => {
-    http
-      .patch(`/members/${data.user_id}`, {
-        approved: data.approve,
-        rejected_note: data?.rejected_note,
-        nia: data.nia,
-      })
-      .then(({ data }) => {
-        notify(data.message);
-      })
-      .catch((err) => notifyError(err))
-      .finally(() => dispatch(dispatchCallback()));
-  };
-}
