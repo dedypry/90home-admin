@@ -34,7 +34,7 @@ export default function TableAction({ onView, onEdit, onDelete }: Props) {
           startContent={<EyeIcon size={18} />}
           onClick={onView}
         >
-          View
+          Detail
         </DropdownItem>
         <DropdownItem
           key="edit"

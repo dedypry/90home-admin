@@ -34,7 +34,8 @@ export function formatIdr(val?: number | string) {
   if (!val) return "-";
 
   return val?.toLocaleString("id-ID", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   });
 }
+

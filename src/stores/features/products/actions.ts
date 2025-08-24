@@ -24,3 +24,32 @@ export function productAvgPrice(variants: IProductVariant[]) {
 
   return price / no;
 }
+
+export function productMinMaxPrice(variants: IProductVariant[]) {
+  if (!variants || variants.length === 0) {
+    return { min: 0, max: 0 };
+  }
+
+  const prices = variants.map((v) => Number(v.price));
+
+  return {
+    min: Math.min(...prices),
+    max: Math.max(...prices),
+  };
+}
+
+export function formatCompactIdr(val: number | string) {
+  if (!val) return "-";
+
+  const num = Number(val);
+
+  if (num >= 1_000_000_000) {
+    return (num / 1_000_000_000).toFixed(2).replace(/\.00$/, "") + " M";
+  } else if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(2).replace(/\.00$/, "") + " Jt";
+  } else if (num >= 1_000) {
+    return (num / 1_000).toFixed(2).replace(/\.00$/, "") + " Rb";
+  }
+
+  return num.toString();
+}
