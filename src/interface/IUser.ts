@@ -61,4 +61,5 @@ export interface IUser {
   email: string;
   status?: string;
   roles: IRole[];
+  profile?: IUserProfile;
 }

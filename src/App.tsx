@@ -9,6 +9,7 @@ import RolePage from "./pages/settings/roles";
 import ProductPage from "./pages/product";
 import ProductCreatePage from "./pages/product/create";
 import DeveloperPage from "./pages/developers";
+import UserManagementPage from "./pages/settings/user-management";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         </Route>
         <Route path="/settings">
           <Route element={<RolePage />} path="roles" />
+          <Route element={<UserManagementPage />} path="user-management" />
         </Route>
       </Route>
 

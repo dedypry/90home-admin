@@ -1,4 +1,4 @@
-import { Grid2X2CheckIcon, Grid2X2PlusIcon, LayoutDashboard, ShieldEllipsis } from "lucide-react";
+import { Grid2X2CheckIcon, Grid2X2PlusIcon, LayoutDashboard, ShieldEllipsis, UserCog2Icon } from "lucide-react";
 
 export const navigate = [
   {
@@ -33,6 +33,11 @@ export const navigate = [
         title: "Role",
         icon: ShieldEllipsis,
         href: "/settings/roles",
+      },
+      {
+        title: "User Management",
+        icon: UserCog2Icon,
+        href: "/settings/user-management",
       },
     ],
   },

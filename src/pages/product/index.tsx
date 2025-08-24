@@ -86,19 +86,6 @@ export default function ProductPage() {
                   <TableCell className="max-w-sm">
                     <TextHeader title="Judul" val={item.listing_title} />
                     <TextHeader title="Cluster" val={item.cluster} />
-                    <p className="text-sm text-gray-600">Type</p>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {item.variants.map((item) => (
-                        <Chip
-                          key={`variant-${item.id}`}
-                          color="success"
-                          size="sm"
-                          variant="bordered"
-                        >
-                          {item.type}
-                        </Chip>
-                      ))}
-                    </div>
                   </TableCell>
                   <TableCell className="max-w-xs">
                     <MinMaxPrice data={productMinMaxPrice(item.variants)} />

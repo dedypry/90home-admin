@@ -67,9 +67,11 @@ export default function ProductCreatePage() {
   });
 
   async function onSubmit(data: any) {
-    const { urls } = await uploadMultipleFile(files, "products/90-home");
+    if (files.length > 0) {
+      const { urls } = await uploadMultipleFile(files, "products/90-home");
 
-    data.images = urls;
+      data.images = urls;
+    }
     setLoading(true);
     http
       .post("/products", data)

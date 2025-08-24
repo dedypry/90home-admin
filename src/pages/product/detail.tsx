@@ -1,10 +1,8 @@
 import {
-  Button,
   Image,
   Modal,
   ModalBody,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   Table,
   TableBody,
@@ -16,11 +14,12 @@ import {
 import { Selection } from "@heroui/react";
 import { useState } from "react";
 
+import FormOrder from "./form-order";
+
 import { IProduct } from "@/interface/Iproduct";
 import Carousel from "@/components/carousel";
 import { formatIdr } from "@/utils/helpers/formater";
 import Rupiah from "@/components/rupiah";
-import CustomInput from "@/components/forms/custom-input";
 interface Props {
   product?: IProduct;
   open: boolean;
@@ -85,16 +84,9 @@ export default function ProductDetail({ product, open, setOpen }: Props) {
         {[...selectedKeys].length > 0 && (
           <>
             <ModalHeader>Order</ModalHeader>
-            <ModalBody className="grid grid-cols-1 md:grid-cols-2">
-              <CustomInput
-                label="Blok"
-                labelPlacement="inside"
-                placeholder="Masukan blok, ..D3/10"
-              />
+            <ModalBody>
+              <FormOrder variantId={[...selectedKeys] as string[]} />
             </ModalBody>
-            <ModalFooter>
-              <Button color="primary">Order</Button>
-            </ModalFooter>
           </>
         )}
       </ModalContent>
